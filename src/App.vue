@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div>
+		<Nav />
+		<div class="px-10 py-8 min-h-screen">
+			<router-view></router-view>
+		</div>
+		<Footer />
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Nav from './components/Nav'
+import Footer from './components/Footer'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	components: {
+		Nav,
+		Footer
+	},
+	computed : {
+		isLoggedIn() {
+			return this.$store.getters.isLogedin
+		}
+	},
+	methods: {
+		logout() {
+			this.$store.dispatch('logout')
+			.then(() => {
+				this.$router.push('/login')
+			})
+		},
+	},
+	created() {
+		if (this.$store.state.auth.token === '') {
+			this.$router.push("/register").catch(()=>{});
+		}
+		if (this.$store.state.auth.isLogin !== '') {
+			this.$router.push("/success").catch(()=>{});
+		}
+	}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
