@@ -2,6 +2,10 @@
 
 ## Project setup
 ```
+clone: 
+```
+
+```
 yarn install
 ```
 
