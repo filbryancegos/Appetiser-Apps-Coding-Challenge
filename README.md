@@ -13,6 +13,12 @@ install packages: yarn install
 serve: yarn serve
 ```
 
+```
+demo link: https://appetiser-apps-coding-challenge-n3wtm2ixm-eking.vercel.app/
+```
+
+
+
 ### Compiles and hot-reloads for development
 ```
 yarn serve
