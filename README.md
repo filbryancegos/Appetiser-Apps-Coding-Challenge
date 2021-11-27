@@ -2,7 +2,7 @@
 
 ## Project setup
 ```
-clone: 
+clone: https://github.com/filbryancegos/Appetiser-Apps-Coding-Challenge.git
 ```
 
 ```
