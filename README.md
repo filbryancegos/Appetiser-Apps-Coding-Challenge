@@ -6,11 +6,11 @@ clone: https://github.com/filbryancegos/Appetiser-Apps-Coding-Challenge.git
 ```
 
 ```
-install packages: yarn install
+install packages: yarn install OR npm install
 ```
 
 ```
-serve: yarn serve
+serve: yarn serve OR npm run serve
 ```
 
 ```
