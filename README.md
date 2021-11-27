@@ -6,7 +6,11 @@ clone: https://github.com/filbryancegos/Appetiser-Apps-Coding-Challenge.git
 ```
 
 ```
-yarn install
+install packages: yarn install
+```
+
+```
+serve: yarn serve
 ```
 
 ### Compiles and hot-reloads for development
