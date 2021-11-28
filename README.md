@@ -14,8 +14,15 @@ serve: yarn serve OR npm run serve
 ```
 
 ```
-demo link: https://appetiser-apps-coding-challenge-n3wtm2ixm-eking.vercel.app/
+Vue js 
+Demo link: https://appetiser-apps-coding-challenge-n3wtm2ixm-eking.vercel.app/
 ```
+```
+Refer also for reactjs version:
+Demo link: https://login-system-api-authentication-hajbkj7b9-eking.vercel.app/
+Github: 
+```
+
 
 
 
