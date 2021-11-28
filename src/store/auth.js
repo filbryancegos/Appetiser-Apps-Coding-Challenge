@@ -44,7 +44,7 @@ const actions = {
         return AuthService.verify(code).then(
             response => {
                 console.log(response);
-                commit('auth_login', true)
+                commit('auth_login', false)
                 return Promise.resolve(response.data);
             },
             error => {

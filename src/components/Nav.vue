@@ -39,8 +39,7 @@ export default {
 	},
 	created() {
 		if (this.$store.state.auth.token === '') {
-			// this.$router.push("/login").catch(()=>{});
-			this.$router.push("/register").catch(()=>{});
+			this.$router.push("/login").catch(()=>{});
 		}
 		if (this.$store.state.auth.isLogin !== '') {
 			this.$router.push("/success").catch(()=>{});
