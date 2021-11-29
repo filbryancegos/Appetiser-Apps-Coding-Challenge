@@ -23,13 +23,13 @@
                     <span class="help-block text-red-500 block mt-2" v-if="has_error && errorsMessages.password">{{ errorsMessages.password }}</span>
                  </label>
                  <div class="flex mt-4">
-                     <button class="bg-blue-400 hover:bg-blue-500 py-3  text-white w-full rounded-sm text-lg font-bold">Login</button>
+                     <button class="bg-green-400 hover:bg-green-500 py-3  text-white w-full rounded-sm text-lg font-bold">Login</button>
                  </div>
                  <div class="mt-4">
                     <div class="text-lg font-bold text-center flex justify-center items-center">
                         <span>Don't have an account?</span>
                         <router-link :to="{name: 'Register'}">
-                            <span class="text-blue-500 hover:underline cursor-pointer ml-1"> Register</span>
+                            <span class="text-green-500 hover:underline cursor-pointer ml-1"> Register</span>
                         </router-link>
                     </div>
                 </div>
@@ -60,6 +60,7 @@ name: 'Login',
             this.$store.dispatch('login', this.formData)
             .then(() => {
                 this.$router.push('/success')
+                 //window.location.reload(false);
                 this.clearFields()
             },
             (error) => {

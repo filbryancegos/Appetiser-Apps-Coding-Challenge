@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-500 py-8">
+  <div class="bg-green-500 py-8">
       <p class="text-base text-center text-white">All Rights Reserved</p>
   </div>
 </template>

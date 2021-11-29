@@ -19,7 +19,8 @@ class AuthService {
 		.post(`${API_URL}/verification/verify`, data, { headers: AuthHeader() })
 	}
 	logout() {
-		localStorage.removeItem('token')
+		return axios
+		.post(`${API_URL}/logout`, { headers: AuthHeader() } )
 	}
   }
 

@@ -1,14 +1,14 @@
 import AuthService from '../services/auth.service';
 
 const state = {
-    token: localStorage.getItem('token') || '',
     user: {},
-    isLogin: localStorage.getItem('isLoggedin') || ''
+    isLogin: localStorage.getItem('login') || '',
+    username: localStorage.getItem('user') || '',
 }
 
 const getters = {
-    isToken: state => state.token,
-    isLogedin: state => state.isLogin
+    isLogedin: state => state.isLogin,
+    isUserName: state => state.username,
 }
 
 const actions = {
@@ -16,13 +16,13 @@ const actions = {
         return AuthService.login(user).then(
             response => {
             localStorage.setItem('token', response.data.data.access_token);
-            localStorage.setItem('isLoggedin', 'isLoggedin');
+            localStorage.setItem('user', response.data.data.user.full_name);
+            localStorage.setItem('login', 'is_login');
             commit('auth_success', response.data)
             commit('auth_login', true)
             return Promise.resolve(response.data);
         },
         error => {
-            commit('auth_error')
             return Promise.reject(error);
         });
     },
@@ -30,12 +30,11 @@ const actions = {
         return AuthService.register(user).then(
         response => {
             localStorage.setItem('token', response.data.data.access_token);
-           
             commit('auth_success', response.data)
+            commit('auth_login', false)
             return Promise.resolve(response.data);
         },
         error => {
-            commit('auth_error')
             return Promise.reject(error);
         }
     )},
@@ -52,27 +51,30 @@ const actions = {
             }
     )},
     logout({commit}) {
-		AuthService.logout()
-        commit('auth_logout')
-        commit('auth_login', false)
-        localStorage.setItem('isLoggedin', '');
+        return AuthService.logout().then(
+            response => {
+                console.log(response);
+                commit('auth_login', false)
+                localStorage.setItem('login', '');
+                localStorage.setItem('user', '');
+                return Promise.resolve(response.data);
+            },
+            error => {
+                console.log(error.response);
+                return Promise.reject(error);
+            }
+            )
 	},
 }
 
 const mutations = {
     auth_success(state, response){
-		state.token = response.data.access_token
 		state.user = response.data.user
+        state.username = response.data.user.full_name
+
 	},
     auth_login(state, islogin){
         state.isLogin = islogin
-    },
-    auth_error(state){
-		state.status = 'error'
-	},
-    auth_logout(state){
-        state.token = ''
-		state.user = ''
     }
 }
 

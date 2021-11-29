@@ -12,7 +12,7 @@
                     class="mt-1 block w-full rounded-sm" placeholder="">
                 </label>
                 <div class="flex mt-4">
-                    <button class="bg-blue-400 hover:bg-blue-500 py-3  text-white w-full rounded-sm text-lg font-bold">Verify</button>
+                    <button class="bg-green-400 hover:bg-green-500 py-3  text-white w-full rounded-sm text-lg font-bold">Verify</button>
                 </div>
             </form>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="success">
-   <h1 class="text-blue-500 text-center font-bold text-lg">Login successful</h1>
+   <h1 class="text-green-500 text-center font-bold text-lg">Login successful</h1>
   </div>
 </template>
 
