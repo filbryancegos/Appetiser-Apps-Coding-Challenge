@@ -16,14 +16,9 @@ serve: yarn serve OR npm run serve
 ```
 Vue js 
 Demo link: https://appetiser-apps-coding-challenge-n3wtm2ixm-eking.vercel.app/
-```
-```
-Refer also for reactjs version:
-Demo link: https://login-system-api-authentication-hajbkj7b9-eking.vercel.app/
-Github: https://github.com/filbryancegos/Login-System-API-Authentication
-```
 
-
+FYI: demo link is not updated, need to pay before can redeploy. Please install locally to see updated one
+```
 
 
 ### Compiles and hot-reloads for development
