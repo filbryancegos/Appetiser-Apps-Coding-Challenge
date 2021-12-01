@@ -39,10 +39,8 @@ const actions = {
         }
     )},
     verify({commit}, code) {
-        console.log(commit);
         return AuthService.verify(code).then(
             response => {
-                console.log(response);
                 commit('auth_login', false)
                 return Promise.resolve(response.data);
             },
@@ -53,7 +51,6 @@ const actions = {
     logout({commit}) {
         return AuthService.logout().then(
             response => {
-                console.log(response);
                 commit('auth_login', false)
                 localStorage.setItem('login', '');
                 localStorage.setItem('user', '');
@@ -71,7 +68,6 @@ const mutations = {
     auth_success(state, response){
 		state.user = response.data.user
         state.username = response.data.user.full_name
-
 	},
     auth_login(state, islogin){
         state.isLogin = islogin

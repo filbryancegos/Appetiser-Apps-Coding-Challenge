@@ -18,11 +18,14 @@
                     <label class="block mb-6">
                         <span 
                          :class="[errorsMessages.full_name ? 'text-red-500' : 'text-gray-700']"  
-                        class="text-gray-700 text-base">Full Name</span>
+                        class="text-gray-700 text-base"
+                        >Full Name</span>
                         <input 
                          v-model="formData.full_name"
                         type="text" 
-                        class="mt-1 block w-full rounded-sm" placeholder="">
+                        class="mt-1 block w-full rounded-sm" placeholder=""
+                        :class="{ 'border-red-500': has_error && errorsMessages.full_name }" 
+                        >
                         <span class="help-block text-red-500 block mt-2" v-if="has_error && errorsMessages.full_name">{{ errorsMessages.full_name }}</span>
                     </label>
                     <label class="block mb-6">
@@ -32,18 +35,18 @@
                         <input
                          v-model="formData.password" 
                         type="password" 
-                        class="mt-1 block w-full rounded-sm" placeholder="">
+                        class="mt-1 block w-full rounded-sm" placeholder=""
+                        :class="{ 'border-red-500': has_error && errorsMessages.password }" 
+                        >
                         <span class="help-block text-red-500 block mt-2" v-if="has_error && errorsMessages.password">{{ errorsMessages.password }}</span>
                     </label>
                     <label class="block mb-6">
                         <span 
-                        :class="[errorsMessages.password_confirmation ? 'text-red-500' : 'text-gray-700']" 
                         class="text-gray-700 text-base">Password Confirmation</span>
                         <input
                         v-model="formData.password_confirmation"  
                         type="password" 
                         class="mt-1 block w-full rounded-sm" placeholder="">
-                         <span class="help-block text-red-500 block mt-2" v-if="has_error && errorsMessages.password_confirmation">{{ errorsMessages.password_confirmation }}</span>
                     </label>
                     <div class="flex mt-4">
                         <button class="bg-green-400 hover:bg-green-500 py-3  text-white w-full rounded-sm text-lg font-bold">Register</button>
@@ -80,10 +83,6 @@ export default {
                 password_confirmation: ''
             },
 			has_error: false,
-            email: '',
-            full_name: '',
-            password: '',
-            password_confirmation: ''
         }
     },
     methods: {

@@ -60,11 +60,9 @@ name: 'Login',
             this.$store.dispatch('login', this.formData)
             .then(() => {
                 this.$router.push('/success')
-                 //window.location.reload(false);
                 this.clearFields()
             },
             (error) => {
-                console.log("error");
                 const errors = error.response.data.errors
                 this.has_error = true
                 this.resetErrors()
